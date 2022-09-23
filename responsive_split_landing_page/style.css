@@ -1,0 +1,131 @@
+:root {
+  --left-bg-color: rgba(44, 42, 90, 0.659);
+  --right-bg-color: rgba(253, 138, 38, 0.659);
+  --hover-size: 75%;
+  --other-size: 25%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.container{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.split{
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.split.left{
+  background-image: url('./sasuke.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position:right;
+  left: 0;
+}
+
+.split.left::before{
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: var(--left-bg-color);
+}
+
+.split.right{
+  background-image: url('./naruto.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position:left;
+  right: 0;
+}
+
+.split.right::before{
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: var(--right-bg-color);
+}
+
+.content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+h1{
+  color: #ffffff;
+  font-size: 3em;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.hover-left .left{
+  width: var(--hover-size);
+  height:100%;
+}
+
+.hover-left .right{
+  width: var(--other-size);
+  height:100%;
+}
+
+.hover-right .right{
+  width: var(--hover-size);
+  height:100%;
+}
+
+.hover-right .left{
+  width: var(--other-size);
+  height:100%;
+}
+
+.split{
+  transition: all 1000ms ease-in-out;
+}
+
+@media screen and (max-width: 768px){
+  .split{
+    height: 50%;
+    width: 100%;
+    position: relative;
+  }
+
+  .hover-left .left{
+    width: 100%;
+    height: var(--hover-size);
+  }
+
+  .hover-left .right{
+    width: 100%;
+    height: var(--other-size);
+  }
+
+  .hover-right .right{
+    width: 100%;
+    height: var(--hover-size);
+  }
+
+  .hover-right .left{
+    width: 100%;
+    height: var(--other-size);
+  }
+}
